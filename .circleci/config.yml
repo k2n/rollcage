@@ -46,7 +46,7 @@ jobs:
         command: sudo update-alternatives --set java /usr/lib/jvm/jdk1.8.0/bin/java; sudo update-alternatives --set javac /usr/lib/jvm/jdk1.8.0/bin/javac; echo -e "export JAVA_HOME=/usr/lib/jvm/jdk1.8.0" >> $BASH_ENV
     - run:
         working_directory: ~/k2n/rollcage
-        command: if ["2.7.11" == "system"] || pyenv versions --bare | grep -x -q '2.7.11'; then pyenv global version;else pyenv install --skip-existing  2.7.11 && pyenv global version && pyenv rehash && pip install virtualenv && pip install nose && pip install pep8 && pyenv rehash;fi
+        command: if [ "2.7.11" == "system" ] || pyenv versions --bare | grep -x -q '2.7.11'; then pyenv global version;else pyenv install --skip-existing  2.7.11 && pyenv global version && pyenv rehash && pip install virtualenv && pip install nose && pip install pep8 && pyenv rehash;fi
     # Dependencies
     #   This would typically go in either a build or a build-and-test job when using workflows
     # Restore the dependency cache
